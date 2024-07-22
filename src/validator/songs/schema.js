@@ -1,4 +1,5 @@
 const Joi = require('joi');
+const { currentYear } = require('../../constants');
 
 const SongPayloadSchema = Joi.object({
   title: Joi
@@ -7,6 +8,8 @@ const SongPayloadSchema = Joi.object({
   year: Joi
     .number()
     .integer()
+    .min(0)
+    .max(currentYear)
     .required(),
   genre: Joi
     .string()
