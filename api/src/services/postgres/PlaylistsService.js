@@ -34,7 +34,7 @@ class PlayListsService {
       WHERE p.owner = $1 OR c."userId" = $1`,
       values: [owner],
     };
-    console.log("tests");
+
     const result = await this._pool.query(query);
 
     return result.rows;
