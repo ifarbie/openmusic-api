@@ -17,14 +17,16 @@ class AlbumsHandler {
     return response;
   }
 
-  async getAlbumByIdHandler(req) {
+  async getAlbumByIdHandler(req, h) {
     const { id } = req.params;
-    const album = await this._service.getAlbumById(id);
+    const { album, source } = await this._service.getAlbumById(id);
 
-    return {
+    const response = h.response({
       status: 'success',
       data: { album },
-    };
+    });
+    response.header('X-Data-Source', source);
+    return response;
   }
 
   async putAlbumByIdHandler(req) {

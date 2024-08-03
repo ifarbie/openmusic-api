@@ -51,6 +51,8 @@ class SongsHandler {
 
   async deleteSongByIdHandler(req) {
     const { id } = req.params;
+
+    await this._service.verifySongExist(id);
     await this._service.deleteSongById(id);
 
     return {

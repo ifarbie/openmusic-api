@@ -73,21 +73,18 @@ class SongsService {
     }
 
     await this._cacheService.delete(`song:${songId}`);
+    await this._cacheService.delete(`album:${albumId}`);
   }
 
   async deleteSongById(songId) {
     const query = {
-      text: 'DELETE FROM songs WHERE id = $1 RETURNING id',
+      text: 'DELETE FROM songs WHERE id = $1 RETURNING id, "albumId"',
       values: [songId],
     };
-
     const result = await this._pool.query(query);
 
-    if (!result.rows.length) {
-      throw new NotFoundError('Lagu gagal dihapus. Id tidak ditemukan');
-    }
-
     await this._cacheService.delete(`song:${songId}`);
+    await this._cacheService.delete(`album:${result.rows[0].albumId}`);
   }
 
   async verifySongExist(songId) {
