@@ -1,4 +1,4 @@
-const config = require("../../utils/config");
+const config = require('../../utils/config');
 
 class UploadAlbumCoversHandler {
   constructor(storageService, albumsService, validator) {
@@ -14,7 +14,7 @@ class UploadAlbumCoversHandler {
     const { id } = req.params;
 
     const filename = await this._storageService.writeFile(cover, cover.hapi);
-    const coverUrl = `http://${config.app.host}:${config.app.PORT}/albums/images/${filename}`;
+    const coverUrl = `http://${config.app.host}:${config.app.port}/albums/images/${filename}`;
 
     await this._albumsService.editCoverUrlByAlbumId(id, coverUrl);
 
