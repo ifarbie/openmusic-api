@@ -66,12 +66,12 @@ const config = require('./utils/config');
 
 const init = async () => {
   const cacheService = new CacheService();
-  const collaborationsService = new CollaborationsService();
+  const collaborationsService = new CollaborationsService(cacheService);
   const albumsService = new AlbumsService(cacheService);
   const songsService = new SongsService(cacheService);
   const usersService = new UsersService();
   const authenticationsService = new AuthenticationsService();
-  const playlistsService = new PlayListsService(collaborationsService);
+  const playlistsService = new PlayListsService(collaborationsService, cacheService);
   const playlistSongsService = new PlaylistSongsService();
   const playlistActivitiesService = new PlaylistActivitiesService();
   const storageService = new StorageService(path.resolve(__dirname, 'api/albums/files/images'));

@@ -21,17 +21,19 @@ class PlaylistsHandler {
     return response;
   }
 
-  async getPlaylistsHandler(req) {
+  async getPlaylistsHandler(req, h) {
     const { id: owner } = req.auth.credentials;
 
-    const playlists = await this._service.getAllPlaylists(owner);
+    const { playlists, source } = await this._service.getAllPlaylists(owner);
 
-    return {
+    const response = h.response({
       status: 'success',
       data: {
         playlists,
       },
-    };
+    });
+    response.header('X-Data-Source', source);
+    return response;
   }
 
   async deletePlaylistByIdHandler(req) {
