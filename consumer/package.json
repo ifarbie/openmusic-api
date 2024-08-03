@@ -1,0 +1,18 @@
+{
+  "name": "openmusic-api-consumer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/consumer.js",
+  "scripts": {
+    "start": "nodemon ./src/consumer.js "
+  },
+  "keywords": [],
+  "author": "Fariz Rifky Berliano",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.10.4",
+    "dotenv": "^16.4.5",
+    "nodemailer": "^6.9.14",
+    "pg": "^8.12.0"
+  }
+}
