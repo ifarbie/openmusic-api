@@ -26,10 +26,10 @@ class PlaylistsService {
         name: result.rows[0].name,
         songs: result.rows
           ? result.rows.map((row) => ({
-              id: row.songId,
-              title: row.title,
-              performer: row.performer,
-            }))
+            id: row.songId,
+            title: row.title,
+            performer: row.performer,
+          }))
           : [],
       },
     };

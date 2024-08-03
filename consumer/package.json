@@ -4,11 +4,17 @@
   "description": "",
   "main": "./src/consumer.js",
   "scripts": {
-    "start": "nodemon ./src/consumer.js "
+    "start": "nodemon ./src/consumer.js",
+    "lint": "eslint ./"
   },
   "keywords": [],
   "author": "Fariz Rifky Berliano",
   "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1"
+  },
   "dependencies": {
     "amqplib": "^0.10.4",
     "dotenv": "^16.4.5",

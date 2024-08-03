@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 class Listener {
   constructor(playlistsService, mailSender) {
     this._playlistsService = playlistsService;
@@ -9,9 +10,12 @@ class Listener {
   async listen(message) {
     try {
       const { playlistId, targetEmail } = JSON.parse(message.content.toString());
-      
+
       const playlist = await this._playlistsService.getPlaylistSongsById(playlistId);
-      const result = await this._mailSender.sendEmail(targetEmail, JSON.stringify(playlist, null, 2));
+      const result = await this._mailSender.sendEmail(
+        targetEmail,
+        JSON.stringify(playlist, null, 2),
+      );
       console.log(result);
     } catch (error) {
       console.error(error);
