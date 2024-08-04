@@ -1,30 +1,11 @@
 {
   "name": "openmusic-api",
   "version": "1.0.0",
-  "description": "Open Music API for Dicoding",
-  "main": "./src/server.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "prod": "cross-env NODE_ENV=production node ./src/server.js",
-    "dev": "nodemon ./src/server.js",
-    "lint": "eslint ./",
-    "migrate": "node-pg-migrate"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Fariz Rifky Berliano",
-  "license": "ISC",
-  "devDependencies": {
-    "cross-env": "^7.0.3",
-    "eslint": "^8.57.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.29.1"
-  },
-  "dependencies": {
-    "@hapi/hapi": "^21.3.10",
-    "@hapi/jwt": "^3.2.0",
-    "bcrypt": "^5.1.1",
-    "dotenv": "^16.4.5",
-    "joi": "^17.13.3",
-    "nanoid": "^3.1.20",
-    "node-pg-migrate": "^7.5.2",
-    "pg": "^8.12.0"
-  }
+  "license": "ISC"
 }
